@@ -153,6 +153,12 @@ else
 
   //echo "<tr align=\"right\" bgcolor=\"#EAEAEA\"><td colspan=\"6\"><b>TOTAL</b></td><td><b>$gTotal</b></td></tr>";
   echo "</table>";
+  echo '<p align="center"><form method="get" action="despatch_invoice_pdf.php">';
+  echo '<input type="hidden" name="invref" value="' . htmlspecialchars($invref, ENT_QUOTES, 'UTF-8') . '">';
+  echo '<input type="hidden" name="invno" value="' . htmlspecialchars($invno, ENT_QUOTES, 'UTF-8') . '">';
+  echo '<input type="hidden" name="cuno" value="' . htmlspecialchars($cuno, ENT_QUOTES, 'UTF-8') . '">';
+  echo '<input type="submit" value="Download Invoice">';
+  echo '</form></p>';
  }
 
  $rs = $link->prepare("select distinct dpst,ordno from despatch where invref=:invref and invno=:invno and cuno=:cuno");
